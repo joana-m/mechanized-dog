@@ -9,7 +9,7 @@ input = gets.chomp.split(',')
 # Initialization
 start = true
 while start == true
-  if dog.drop!(input[0].to_i, input[1].to_i, input[2])
+  if dog.drop!(input[0].to_i, input[1].to_i, input[2].downcase)
     start = false
     next
   else
@@ -23,12 +23,12 @@ end
 continue = true
 while continue == true
   puts '> What do you want to do? (drop, walk, left, right, bark or quit)'
-  choice = gets.chomp
+  choice = gets.chomp.downcase
   case choice
   when 'drop'
     puts '> Choose a position for the dog (x, y, f)'
     position = gets.chomp.split(',')
-    dog.drop!(position[0].to_i, position[1].to_i, position[2])
+    dog.drop!(position[0].to_i, position[1].to_i, position[2].downcase)
   when 'walk'
     dog.walk!
   when 'left'
